@@ -14,6 +14,7 @@
 		B7FED36D2A7EA710004BE8C5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FED36B2A7EA710004BE8C5 /* Main.storyboard */; };
 		B7FED36F2A7EA711004BE8C5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B7FED36E2A7EA711004BE8C5 /* Assets.xcassets */; };
 		B7FED3722A7EA711004BE8C5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B7FED3702A7EA711004BE8C5 /* LaunchScreen.storyboard */; };
+		B7FED37D2A7EACEC004BE8C5 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7FED37C2A7EACEC004BE8C5 /* R.generated.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		B7FED36E2A7EA711004BE8C5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B7FED3712A7EA711004BE8C5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B7FED3732A7EA711004BE8C5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B7FED37C2A7EACEC004BE8C5 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
 		D9BBC56DD46146AE827B6646 /* Pods-Test_GIT.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_GIT.release.xcconfig"; path = "Target Support Files/Pods-Test_GIT/Pods-Test_GIT.release.xcconfig"; sourceTree = "<group>"; };
 		E4EC17998F2CE56A58A17D7D /* Pods-Test_GIT.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test_GIT.debug.xcconfig"; path = "Target Support Files/Pods-Test_GIT/Pods-Test_GIT.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -48,7 +50,6 @@
 				E4EC17998F2CE56A58A17D7D /* Pods-Test_GIT.debug.xcconfig */,
 				D9BBC56DD46146AE827B6646 /* Pods-Test_GIT.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -74,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				B7FED3652A7EA710004BE8C5 /* AppDelegate.swift */,
+				B7FED37A2A7EAB97004BE8C5 /* Resources */,
 				B7FED3672A7EA710004BE8C5 /* SceneDelegate.swift */,
 				B7FED3692A7EA710004BE8C5 /* ViewController.swift */,
 				B7FED36B2A7EA710004BE8C5 /* Main.storyboard */,
@@ -82,6 +84,22 @@
 				B7FED3732A7EA711004BE8C5 /* Info.plist */,
 			);
 			path = Test_GIT;
+			sourceTree = "<group>";
+		};
+		B7FED37A2A7EAB97004BE8C5 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				B7FED37B2A7EAC9E004BE8C5 /* Generated */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		B7FED37B2A7EAC9E004BE8C5 /* Generated */ = {
+			isa = PBXGroup;
+			children = (
+				B7FED37C2A7EACEC004BE8C5 /* R.generated.swift */,
+			);
+			path = Generated;
 			sourceTree = "<group>";
 		};
 		D965E55D0CEAE9413AF8BDAD /* Frameworks */ = {
@@ -104,6 +122,7 @@
 				B7FED35F2A7EA710004BE8C5 /* Frameworks */,
 				B7FED3602A7EA710004BE8C5 /* Resources */,
 				3D2FC258BD771B0E83305A35 /* [CP] Embed Pods Frameworks */,
+				B7FED3792A7EAB47004BE8C5 /* Generate R.swift */,
 			);
 			buildRules = (
 			);
@@ -200,6 +219,25 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		B7FED3792A7EAB47004BE8C5 /* Generate R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Generate R.swift";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/Test_GIT/Resources/Generated/R.generated.swift\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -210,6 +248,7 @@
 				B7FED36A2A7EA710004BE8C5 /* ViewController.swift in Sources */,
 				B7FED3662A7EA710004BE8C5 /* AppDelegate.swift in Sources */,
 				B7FED3682A7EA710004BE8C5 /* SceneDelegate.swift in Sources */,
+				B7FED37D2A7EACEC004BE8C5 /* R.generated.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
